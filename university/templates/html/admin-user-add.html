@@ -1,0 +1,187 @@
+
+{%  extends 'includes/admin-header.html'%}
+{%load staticfiles%}
+{%block title_block%}Admin User Add {%endblock%}
+{% block body %}
+            <!--== BODY INNER CONTAINER ==-->
+            <div class="sb2-2">
+                <!--== breadcrumbs ==-->
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Add new student</a>
+                        </li>
+                        <li class="page-back"><a href="/"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--== User Details ==-->
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+						<div class="box-inn-sp admin-form">
+                                <div class="inn-title">
+                                    <h4>Add New Student Informations</h4>
+                                    <p>Here you can edit your website basic details URL, Phone, Email, Address, User and password and more</p>
+                                </div>
+                                <div class="tab-inn">
+                                    <form method="post" enctype="multipart/form-data">
+                                        {%csrf_token %}
+
+
+
+                                       <!--  <div class="row">
+                                            <div class="input-field col s12">
+                                               {{form}}
+
+                                            </div>
+                                         </div>-->
+
+                                        <div class="row">
+                                <div class="input-field col s12">
+                                    {{form.user}}
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <div class="input-field col s12">
+                                    {{form.about_student}}
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s6">
+                                     {{form.student_id}}
+
+                                    <label class="">Student Id</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    {{form.student_mobile_no}}
+
+                                    <label class="">Mobile Number</label>
+                                </div>
+                            </div>
+                                        <div class="row">
+                                <div class="input-field col s6">
+                                    {{form.date_of_birth}}
+
+                                    <label class="">Date of Birth (yyyy-mm-dd)</label>
+                                </div>
+                                <div class="input-field col s6">
+                                     {{form.student_address}}
+
+                                    <label class="">Student Address</label>
+                                </div>
+                            </div>
+                                  <div class="row">
+											<div class="file-field input-field col s12">
+												<div class="btn admin-upload-btn">
+													<span>File</span>
+                                                     {{form.student_img}}
+
+												</div>
+												<div class="file-path-wrapper">
+													<input class="file-path validate" type="text" placeholder="Student Image">
+												</div>
+											</div>
+                                        </div>
+<div class="row">
+                                <div class="input-field col s6">
+                                    {{form.facebook_url}}
+
+                                    <label class="">Facebook Url</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    {{form.google_url}}
+
+                                    <label class="">Google Url</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    {{form.Twitter_url}}
+
+                                    <label class="">Twitter Urle</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    {{form.terms_condition}}
+
+                                    <label class="">Terms & Condition</label>
+                                </div>
+                            </div>
+
+                                      <!--  <div class="row">
+                                            <div class="input-field col s6">
+                                                <input type="text" value="" class="validate" required>
+                                                <label class="">First name</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input type="text" value="" class="validate" required>
+                                                <label class="">Last name</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input type="number" value="" class="validate" required>
+                                                <label class="">Phone number</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input type="email" class="validate" value="" required>
+                                                <label class="">Email is</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input type="text" value="" class="validate">
+                                                <label class="">City</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input type="text" value="" class="validate">
+                                                <label class="">Country</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input type="password" value="" class="validate">
+                                                <label class="">Password</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input type="password" value="" class="validate">
+                                                <label class="">Confirm Password</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="text" value="" class="validate">
+                                                <label>Student id</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+											<div class="file-field input-field col s12">
+												<div class="btn admin-upload-btn">
+													<span>File</span>
+													<input type="file">
+												</div>
+												<div class="file-path-wrapper">
+													<input class="file-path validate" type="text" placeholder="Profile image">
+												</div>
+											</div>
+                                        </div>  -->
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input"></i>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

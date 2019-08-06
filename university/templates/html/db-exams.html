@@ -1,0 +1,108 @@
+
+{%  extends 'html/base.html'%}
+{%load staticfiles%}
+{%block title_block%}DB Exams{%endblock%}
+{% block body %}
+
+
+
+    <!--SECTION START-->
+    <section>
+        <div class="pro-cover">
+        </div>
+        <div class="pro-menu">
+            <div class="container">
+                <div class="col-md-9 col-md-offset-3">
+                    <ul>
+                        <li><a href="/dashboard">My Dashboard</a></li>
+                        <li><a href="/db-profile">Profile</a></li>
+                        <li><a href="/db-course">Courses</a></li>
+                        <li><a href="/db-exams" class="pro-act">Exams</a></li>
+                        <li><a href="/db-time-line">Time Line</a></li>
+                        <li><a href="#">Entry</a></li>
+                        <li><a href="#">Notifications</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="stu-db">
+            <div class="container pg-inn">
+              <div class="col-md-3">
+                    <div class="pro-user">
+                        <img src="{{user.profile.student_img.url}}" alt="user">
+                    </div>
+                    <div class="pro-user-bio">
+                        <ul>
+                            <li>
+                                <h4>{{user.username}}</h4>
+                            </li>
+                            <li>Student Id: {{user.profile.student_id}}</li>
+                            <li><a href="#!"><i class="fa fa-facebook"></i> Facebook: {{user.profile.facebook_url}}</a></li>
+                            <li><a href="#!"><i class="fa fa-google-plus"></i> Google: {{user.profile.google_url}}</a></li>
+                            <li><a href="#!"><i class="fa fa-twitter"></i> Twitter: {{user.profile.Twitter_url}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="udb">
+                        <div class="udb-sec udb-time">
+                            <h4><img src="{% static 'images/icon/db5.png' %}" alt="" /> Exam Details</h4>
+                            <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                            <div class="tour_head1 udb-time-line days">
+                                <ul>
+
+                                     {% for xam in exam_list%}
+
+                                    <li class="l-info-pack-plac"> <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <div class="sdb-cl-tim">
+
+                                            <div class="sdb-cl-day">
+
+
+                                                <h5>{{xam.user_semester}}</h5>
+
+                                                <span>Start date: {{xam.exam_date_from}}</span>
+
+                                            </div>
+
+
+                                            <div class="sdb-cl-class">
+
+                                                <ul>
+
+                                                    <li>
+                                                        <div class="sdb-cl-class-tim tooltipped" data-position="top" data-delay="50" data-tooltip="Exam timing">
+                                                            <span>{{xam.exam_time_from}}</span>
+                                                            <span>{{xam.exam_time_to}}</span>
+                                                        </div>
+                                                        <div class="sdb-cl-class-name tooltipped" data-position="top" data-delay="50" data-tooltip="Exam name and status">
+                                                            <h5>{{xam.subject_name}} <span>{{xam.hall_title}}</span></h5>
+                                                            <span class="sdn-hall-na">{{xam.exam_date_from}}</span>
+                                                        </div>
+                                                    </li>
+
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    {% endfor %}
+
+
+                                    <li class="l-info-pack-plac"> <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <h4><span>Holiday: </span> Thursday </h4>
+                                        <p>After breakfast, proceed for tour of Dubai city. Visit Jumeirah Mosque, World Trade Centre, Palaces and Dubai Museum. Enjoy your overnight stay at the hotel.In the evening, enjoy a tasty dinner on the Dhow cruise.
+                                            Later, head back to the hotel for a comfortable overnight stay.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--SECTION END-->
+
+{%endblock%}

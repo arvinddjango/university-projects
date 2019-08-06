@@ -1,0 +1,48 @@
+<!--
+<div class="pagination">
+
+  {%if page.has_previous%}
+  <a href="?page={{page.previous_page_number}}">Previous</a>&nbsp&nbsp
+  {%endif%}
+  <span>Pages {{page.number}} of {{page.paginator.num_pages}}</span> &nbsp&nbsp
+  {%if page.has_next%}
+  <a href="?page={{page.next_page_number}}">Next</a>
+  {%endif%}
+</div>
+
+-->
+
+
+
+
+<div class="pg-pagina">
+                            <ul class="pagination">
+
+    {% if blog_list.has_previous %}
+                                <li class="active"><a href="?page={{ blog_list.previous_page_number }}">&laquo;</a></li>
+{% else %}
+<li class="disabled"><a href="#!"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+{% endif %}
+{% for i in blog_list.paginator.page_range %}
+  {% if blog_list.number == i %}
+                                <li class="active"><a href="">{{ i }}</a></li>
+
+
+  {% else %}
+                                <li class="waves-effect"><a href="?page={{ i }}">{{ i }}</a></li>
+
+{% endif %}
+{% endfor %}
+{% if blog_list.has_next %}
+                                <li class="active"><a href="?page={{ blog_list.next_page_number }}">&raquo;</a></li>
+
+{% else %}
+   <li class="waves-effect"><a href="#!"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+{% endif %}
+
+</ul>
+  <!--<span class="small-text">2</span>
+  <span class="small-text">3</span>
+  <span class="small-text">4</span>
+  <span class="small-text">5</span>-->
+</div>

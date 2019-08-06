@@ -1,0 +1,113 @@
+{%  extends 'includes/admin-header.html'%}
+{%load staticfiles%}
+% load crispy_forms_tags %}
+{%block title_block%}Admin Studetn Edit Page{%endblock%}
+{% block body %}
+            <!--== BODY INNER CONTAINER ==-->
+            <div class="sb2-2">
+                <!--== breadcrumbs ==-->
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Student Details</a>
+                        </li>
+                        <li class="page-back"><a href="/"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--== User Details ==-->
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+						<div class="box-inn-sp admin-form">
+                                <div class="inn-title">
+                                    <h4>Student Informations</h4>
+                                    <p>Here you can edit your website basic details URL, Phone, Email, Address, User and password and more</p>
+                                </div>
+                                    <div class="tab-inn">
+                                    <div class="table-responsive table-desi">
+
+
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID: {{user_view.id}}</th>
+
+
+                                                </tr>
+                                            </thead>
+                                                <thead>
+                                                <tr>
+
+                                                    <th>User Name : {{user_view.user.first_name}} {{user_view.user.last_name}}</th>
+
+                                                </tr>
+                                            </thead>
+                                            <thead>
+                                                <tr>
+
+                                                    <th>Student Descriptione : {{user_view.about_student}}</th>
+
+                                                </tr>
+                                            </thead>
+
+                                              <thead>
+                                                <tr>
+                                                    <th>Student Id : {{user_view.student_id}}</th>
+                                                </tr>
+                                            </thead>
+                                               <thead>
+                                                <tr>
+                                                    <th>Student Mobile No: {{user_view.student_mobile_no}}</th>
+                                                </tr>
+                                            </thead>
+                                              <thead>
+                                                <tr>
+                                                    <th>Student DOB : {{user_view.date_of_birth}}</th>
+                                                </tr>
+                                            </thead>
+                                              <thead>
+                                                <tr>
+                                                    <th>Address: {{user_view.student_address}} </th>
+                                                </tr>
+                                            </thead>
+                                              <thead>
+                                                <tr>
+                                                    <th>Facebook : {{user_view.facebook_url}}</th>
+                                                </tr>
+                                            </thead>
+                                              <thead>
+                                                <tr>
+                                                    <th>Google : {{user_view.google_url}}</th>
+                                                </tr>
+                                            </thead>
+                                              <thead>
+                                                <tr>
+                                                    <th>Twitter: {{user_view.Twitter_url}}</th>
+                                                </tr>
+                                            </thead>
+
+    <thead>
+                                                <tr>
+                                                    <th>Terms & Condition: {{user_view.terms_condition}}</th>
+                                                </tr>
+                                            </thead>
+
+
+
+
+
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}

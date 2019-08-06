@@ -1,0 +1,68 @@
+
+{%  extends 'includes/admin-header.html'%}
+{%load staticfiles%}
+{%block title_block%}Admin Page{%endblock%}
+{% block body %}
+            <!--== BODY INNER CONTAINER ==-->
+            <div class="sb2-2">
+                <!--== breadcrumbs ==-->
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Admission Enquiry</a>
+                        </li>
+                        <li class="page-back"><a href="/"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--== User Details ==-->
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box-inn-sp">
+                                <div class="inn-title">
+                                    <h4>Admission Enquiry</h4>
+                                    <p>All about students like name, student id, phone, email, country, city and more</p>
+                                </div>
+                                <div class="tab-inn">
+                                    <div class="table-responsive table-desi">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+													<th>Name</th>
+                                                    <th>Email id</th>
+													<th>Phone</th>
+													<th>City</th>
+                                                    <th>Education</th>
+                                                    <th>Course</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for admissionenquirylist in admission_enquiry_list%}
+                                                <tr>
+                                                    <td>{{admissionenquirylist.id}}</td>
+                                                    <td>{{admissionenquirylist.name}}</td>
+                                                    <td>{{admissionenquirylist.email_id}}</td>
+													<td>{{admissionenquirylist.phone_no}}</td>
+                                                      <td>{{admissionenquirylist.city}}</td>
+                                                    <td>{{admissionenquirylist.education}}</td>
+													<td>{{admissionenquirylist.course}}</td>
+
+                                                </tr>
+                                                {% endfor %}
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}

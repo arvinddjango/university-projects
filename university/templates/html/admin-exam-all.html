@@ -1,0 +1,72 @@
+{%  extends 'includes/admin-header.html'%}
+{%load staticfiles%}
+{%block title_block%}Admin Exam All {%endblock%}
+{% block body %}
+            <!--== BODY INNER CONTAINER ==-->
+            <div class="sb2-2">
+                <!--== breadcrumbs ==-->
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="/index-2"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> All Exams</a>
+                        </li>
+                        <li class="page-back"><a href="/index-2"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--== User Details ==-->
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box-inn-sp">
+                                <div class="inn-title">
+                                    <h4>Exams Time Table</h4>
+                                    <p>All about students like name, student id, phone, email, country, city and more</p>
+                                </div>
+                                <div class="tab-inn">
+                                    <div class="table-responsive table-desi">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Exam Semester</th>
+                                                    <th>Course Name</th>
+                                                    <th>Subjects Name</th>
+													<th>Start Date</th>
+                                                    <th>Start Time</th>
+													<th>Duration</th>
+													<th>Edit</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for examlist in exam_all%}
+                                                <tr>
+                                                    <td>{{examlist.id}}</td>
+													<td>{{examlist.exam_semester}}</td>
+													<td>{{examlist.course_name}}</td>
+													<td>{{examlist.subject_name}}</td>
+													<td>{{examlist.exam_date_from}}</td>
+                                                    <td>{{examlist.exam_time_from}}</td>
+													<td>{{examlist.exam_duration}}</td>
+													<td><a href="/admin-exam-edit/{{examlist.id}}" class="ad-st-view">Edit</a></td>
+                                                    <td><a href="/admin-exam-delete/{{examlist.id}}" class="ad-st-view">Delete</a></td>
+                                                </tr>
+                                            {% endfor %}
+
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}

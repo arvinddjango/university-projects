@@ -1,0 +1,62 @@
+{%  extends 'includes/admin-header.html'%}
+{%load staticfiles%}
+% load crispy_forms_tags %}
+{%block title_block%}Admin Studetn Edit Page{%endblock%}
+{% block body %}
+            <!--== BODY INNER CONTAINER ==-->
+            <div class="sb2-2">
+                <!--== breadcrumbs ==-->
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Student Details</a>
+                        </li>
+                        <li class="page-back"><a href="/"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--== User Details ==-->
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+						<div class="box-inn-sp admin-form">
+                                <div class="inn-title">
+                                    <h4>Student Informations</h4>
+                                    <p>Here you can edit your website basic details URL, Phone, Email, Address, User and password and more</p>
+                                </div>
+                                    <div class="tab-inn">
+                                    <div class="table-responsive table-desi">
+
+
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Username</th>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>User Email</th>
+                                                </tr>
+                                             <tbody>
+                                                <tr>
+                                                    <td>{{user_details.id}}</td>
+                                                    <td>{{user_details.username}}</td>
+                                                    <td>{{user_details.first_name}}</td>
+                                                    <td>{{user_details.last_name}}</td>
+													<td>{{user_details.email}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}

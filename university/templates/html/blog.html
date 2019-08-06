@@ -1,0 +1,70 @@
+{% extends 'html/base.html'%}
+{% load staticfiles %}
+{% block title_block %} Blog {% endblock %}
+{% block body %}
+    <!--SECTION START-->
+    <section>
+        <div class="container com-sp">
+            <div class="row">
+                <div class="cor about-sp">
+                    <div class="ed-about-tit">
+                        <div class="con-title">
+                            <h2>Blog <span> Posts</span></h2>
+                            <p>Fusce id sem at ligula laoreet hendrerit venenatis sed purus. Ut pellentesque maximus lacus, nec pharetra augue.</p>
+                        </div>
+                        <div>
+                            <div class="ho-event pg-eve-main pg-blog">
+                                <ul>
+                                    {% for bloglist in blog_list%}
+
+                                    <li>
+                                        <div class="ho-ev-date pg-eve-date"><span>{{bloglist.publish}}</span>
+                                        </div>
+                                        <div class="pg-eve-desc pg-blog-desc">
+                                            <a href="{{bloglist.get_absolute_url}}">
+                                                <h4>{{bloglist.blog_title}}</h4>
+
+                                            </a>
+											<img src="{{bloglist.blog_img.url}}" alt="">
+											<div class="share-btn blog-share-btn">
+												<ul>
+													<li><a href="#"><i class="fa fa-facebook fb1"></i> Share On Facebook</a>
+													</li>
+													<li><a href="#"><i class="fa fa-twitter tw1"></i> Share On Twitter</a>
+													</li>
+													<li><a href="#"><i class="fa fa-google-plus gp1"></i> Share On Google Plus</a>
+													</li>
+                                                        <li>
+                                                    <a href="/shareby/{{bloglist.id}}" class="btn btn-success">Share Post
+                                                        by Email</a></li>
+                                                    <li>Share Id {{bloglist.id}}</li>
+                                                        {%with share_comments.count as share_count%}
+                                <h3>{{share_count}} Total Share{{share_count|pluralize}}</h3>
+                                {%endwith%}
+												</ul>
+											</div>
+                                            <p>{{bloglist.blog_desc|truncatewords:70}}</p>
+                                            <span>{{bloglist.publish}}</span>
+                                        </div>
+                                        <div class="pg-eve-reg pg-blog-reg">
+                                            <a href="{{bloglist.get_absolute_url}}">Read more</a>
+                                        </div>
+                                    </li>
+
+{% endfor %}
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        {%include 'html/pagination.html' with page=blog_list%}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--SECTION END-->
+
+{% endblock %}

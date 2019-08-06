@@ -1,0 +1,72 @@
+{%  extends 'includes/admin-header.html'%}
+{%load staticfiles%}
+{%block title_block%}Admin Event All {%endblock%}
+{% block body %}
+            <!--== BODY INNER CONTAINER ==-->
+            <div class="sb2-2">
+                <!--== breadcrumbs ==-->
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Events</a>
+                        </li>
+                        <li class="page-back"><a href="/"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--== User Details ==-->
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box-inn-sp">
+                                <div class="inn-title">
+									<h4>All Events</h4>
+                                    <p>All about students like name, student id, phone, email, country, city and more</p>
+                                </div>
+                                <div class="tab-inn">
+                                    <div class="table-responsive table-desi">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+													<th>Image</th>
+                                                    <th>Name</th>
+                                                    <th>Start Date</th>
+													<th>Location</th>
+													<th>Status</th>
+													<th>Add</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for eventlist in event_list%}
+                                                <tr>
+                                                    <td>{{eventlist.id}}</td>
+                                                    <td><span class="list-img"><img src="{{eventlist.event_img.url}}" alt=""></span></td>
+													<td>{{eventlist.event_title}}</td>
+                                                    <td>{{eventlist.event_from}}</td>
+													<td>{{eventlist.event_location}}</td>
+                                                    <td>
+                                                        <span class="label label-success">Active</span>
+                                                    </td>
+                                                     <td><a href="/admin-event-add" class="ad-st-view">Add</a></td>
+                                                    <td><a href="/admin-event-edit/{{eventlist.id}}" class="ad-st-view">Edit</a></td>
+                                                    <td><a href="/admin-event-delete/{{eventlist.id}}" class="ad-st-view">Delete</a></td>
+
+                                                </tr>
+                                            {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{%endblock %}

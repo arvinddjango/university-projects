@@ -1,0 +1,88 @@
+
+{%  extends 'includes/admin-header.html'%}
+{%load staticfiles%}
+{%block title_block%}Admin User Add {%endblock%}
+{% block body %}
+            <!--== BODY INNER CONTAINER ==-->
+            <div class="sb2-2">
+                <!--== breadcrumbs ==-->
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Add new User</a>
+                        </li>
+                        <li class="page-back"><a href="/"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--== User Details ==-->
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+						<div class="box-inn-sp admin-form">
+                                <div class="inn-title">
+                                    <h4>Add New Student Informations</h4>
+                                    <p>Here you can edit your website basic details URL, Phone, Email, Address, User and password and more</p>
+                                </div>
+                                <div class="tab-inn">
+                                    <form method="post" enctype="multipart/form-data">
+                                        {%csrf_token %}
+
+
+                                        <div class="row">
+                                <div class="input-field col s6">
+                                    {{form.username}}
+
+                                </div>
+                                            <div class="input-field col s6">
+                                    {{form.first_name}}
+
+                                </div>
+
+
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s6">
+                                     {{form.last_name}}
+
+
+                                </div>
+                                <div class="input-field col s6">
+                                    {{form.email}}
+
+
+                                </div>
+                            </div>
+                                        <div class="row">
+                                <div class="input-field col s6">
+                                    {{form.password1}}
+
+
+                                </div>
+                                <div class="input-field col s6">
+                                     {{form.password2}}
+
+
+                                </div>
+                            </div>
+
+
+
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input"></i>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

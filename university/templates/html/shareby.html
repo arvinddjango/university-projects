@@ -1,0 +1,78 @@
+{%  extends 'html/base.html'%}
+{%load staticfiles%}
+{%block title_block%}University Home Page{%endblock%}
+{% block body %}
+
+
+    <!--SECTION START-->
+    <section>
+        <div class="container com-sp pad-bot-70 pg-inn">
+            <div class="row">
+                <div class="cor">
+                    <div class="col-md-6">
+                        <div class="cor-con-mid">
+                              <div class="cor-p6">
+
+                                <div class="cor-p7-revi">
+
+                                    {% if sent %}
+                                    <h1>Email Sent Successfully </h1>
+                                    <h2>Post with title:{{comment.blog_title}} information shared by Email!!</h2>
+                                    {% else %}
+<h3>Share Post {{comment.blog_title}} By Email</h3>
+
+                                    <form class="col s12" method="post">
+                                        {% csrf_token %}
+                                          <div class="row">
+                                            <div class="input-field col s12">
+                                                {{form}}
+                                            </div>
+
+                                        </div>
+
+                                       <!-- <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="text" class="validate">
+                                                <label>Name</label>
+                                            </div>
+
+                                        </div>
+                                            <div class="row">
+                                        <div class="input-field col s12">
+                                                <input type="text" class="validate">
+                                                <label>Email From</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="input-field col s12">
+                                                <input type="text" class="validate">
+                                                <label>Email To</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="input-field col s12">
+                                                <textarea class="materialize-textarea"></textarea>
+                                                <label>Message</label>
+                                            </div>
+                                        </div>-->
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="submit" value="Submit" class="waves-effect waves-light btn-book">
+                                            </div>
+                                        </div>
+                                    </form>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--SECTION END-->
+
+{%endblock%}

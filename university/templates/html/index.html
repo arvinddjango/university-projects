@@ -1,0 +1,355 @@
+
+{%  extends 'html/base.html'%}
+{%load staticfiles%}
+{%block title_block%}University Home Page{%endblock%}
+{% block body %}
+
+    <!-- SLIDER -->
+    <section>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Wrapper for slides -->
+
+            <div class="carousel-inner">
+
+{% for bannerlist in banner_list %}
+
+                <div class="item slider1 active">
+                    <img src="{{ bannerlist.banner_img.url }}" alt="{{ bannerlist.banner_alt_txt.url }}">
+                    <div class="carousel-caption slider-con">
+                        <h2>{{ bannerlist.banner_img_txt1 }} <span>{{ bannerlist.banner_img_txt2 }}</span></h2>
+                        <p>{{ bannerlist.banner_desc }}</p>
+                        <a href="#" class="bann-btn-1">{{ bannerlist.banner_btn_name }}</a><a href="#" class="bann-btn-2">Read More</a>
+                    </div>
+
+                </div>
+{% endfor %}
+                <!--<div class="item">
+                    <img src="{% static 'images/slider/2.jpg'%}" alt="">
+                    <div class="carousel-caption slider-con">
+                        <h2>Admission open <span>2018</span></h2>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+                        <a href="#" class="bann-btn-1">Admission</a><a href="#" class="bann-btn-2">Read More</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="{% static 'images/slider/3.jpg'%}" alt="">
+                    <div class="carousel-caption slider-con">
+                        <h2>Education <span>Master</span></h2>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+                        <a href="#" class="bann-btn-1">All Courses</a><a href="#" class="bann-btn-2">Read More</a>
+                    </div>
+                </div>-->
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <i class="fa fa-chevron-left slider-arr"></i>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <i class="fa fa-chevron-right slider-arr"></i>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="wed-hom-ser">
+                    <ul>
+                        <li>
+                            <a href="/awards" class="waves-effect waves-light btn-large wed-pop-ser-btn"><img src="{% static 'images/icon/h-ic1.png'%}" alt=""> Academy</a>
+                        </li>
+                        <li>
+                            <a href="/admission" class="waves-effect waves-light btn-large wed-pop-ser-btn"><img src="{% static 'images/icon/h-ic2.png'%}" alt=""> Admission</a>
+                        </li>
+                        <li>
+                            <a href="/allcourses" class="waves-effect waves-light btn-large wed-pop-ser-btn"><img src="{% static 'images/icon/h-ic4.png'%}" alt=""> Courses</a>
+                        </li>
+                        <li>
+                            <a href="/seminar" class="waves-effect waves-light btn-large wed-pop-ser-btn"><img src="{% static 'images/icon/h-ic3.png'%}" alt=""> Seminar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCOVER MORE -->
+    <section>
+        <div class="container com-sp pad-bot-70">
+            <div class="row">
+                {% for indexheadone in index_head_one|slice:":1"%}
+                <div class="con-title">
+                    <h2>{{indexheadone.index_head}} <span>{{indexheadone.index_head_str}}</span></h2>
+                    <p>{{indexheadone.index_desc}}</p>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="ed-course">
+
+{% for moremenudiscover in more_discover_menu|slice:":8"%}
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="ed-course-in">
+                            <a class="course-overlay" href="/{{moremenudiscover.menu_url}}">
+                                <img src="{{moremenudiscover.menu_img.url}}" alt="">
+                                <span>{{moremenudiscover.menu_btn}}</span>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POPULAR COURSES -->
+    <section class="pop-cour">
+        <div class="container com-sp pad-bot-70">
+            <div class="row">
+                {% for indexheadtwo in index_head_two|slice:":1"%}
+                <div class="con-title">
+                    <h2>{{indexheadtwo.index_head_two}} <span>{{indexheadtwo.index_head_two_str}}</span></h2>
+                    <p>{{indexheadtwo.index_desc_two}}</p>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                {% for popularcourse in popular_course%}
+                <div class="col-md-6">
+                    <div>
+                        <!--POPULAR COURSES-->
+
+                        <div class="home-top-cour">
+                            <!--POPULAR COURSES IMAGE-->
+                            <div class="col-md-3"> <img src="{{popularcourse.popular_course_img.url}}" alt=""> </div>
+                            <!--POPULAR COURSES: CONTENT-->
+                            <div class="col-md-9 home-top-cour-desc">
+                                <a href="{{popularcourse.get_absolute_url}}">
+                                    <h3>{{popularcourse.pupular_course_head}}</h3>
+                                </a>
+                                <h4>{{popularcourse.pupular_course_subhead}}</h4>
+                                <p>{{popularcourse.popular_course_desc|truncatewords:20}}</p> <span class="home-top-cour-rat">4.2</span>
+                                <div class="hom-list-share">
+                                    <ul>
+                                        <li><a href="/course-details"><i class="fa fa-bar-chart" aria-hidden="true"></i> Book Now</a> </li>
+                                        <li><a href="/course-details"><i class="fa fa-eye" aria-hidden="true"></i>{{popularcourse.course_seat_total}} Aavailable</a> </li>
+                                        <li><a href="/course-details"><i class="fa fa-share-alt" aria-hidden="true"></i> 570</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- UPCOMING EVENTS -->
+    <section>
+        <div class="container com-sp pad-bot-0">
+            <div class="row">
+                <div class="col-md-4">
+                    <!--<div class="ho-ex-title">
+							<h4>Upcoming Event</h4>
+						</div>-->
+                    <div class="ho-ev-latest ho-ev-latest-bg-1">
+                        <div class="ho-lat-ev">
+                            <h4>Upcoming Event</h4>
+                            <p>Nulla at velit convallis, venenatis lacus quis, efficitur lectus.</p>
+                        </div>
+                    </div>
+                    <div class="ho-event ho-event-mob-bot-sp">
+                        <ul>
+                            {% for eventlist in event_list|slice:":4"%}
+                            <li>
+                                <div class="ho-ev-date"><span>{{eventlist.event_from}}</span>
+                                </div>
+                                <div class="ho-ev-link">
+                                    <a href="/events">
+                                        <h4>{{eventlist.event_title}}</h4>
+                                    </a>
+                                    <p>{{eventlist.event_desc}}</p>
+                                    <span>{{eventlist.event_time_from}} – {{eventlist.event_time_to}}</span>
+                                </div>
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!--<div class="ho-ex-title">
+							<h4>Upcoming Event</h4>
+						</div>-->
+                    <div class="ho-ev-latest ho-ev-latest-bg-2">
+                        <div class="ho-lat-ev">
+                            <h4>Job Vacants</h4>
+                            <p>Nulla at velit convallis, venenatis lacus quis, efficitur lectus.</p>
+                        </div>
+                    </div>
+                    <div class="ho-event ho-event-mob-bot-sp">
+                        <ul>
+                            {% for joblist in job_list|slice:":4"%}
+                            <li>
+                                <div class="ho-ev-img"><img src="{{joblist.job_img.url}}" alt="">
+                                </div>
+                                <div class="ho-ev-link">
+                                    <a href="/jobs">
+                                        <h4>{{joblist.job_title}}</h4>
+                                    </a>
+                                    <p>{{joblist.job_desc}}</p>
+                                    <span>Location: {{joblist.job_location}}</span>
+                                </div>
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!--<div class="ho-ex-title">
+							<h4>Upcoming Event</h4>
+						</div>-->
+                    <div class="ho-ev-latest ho-ev-latest-bg-3">
+                        <div class="ho-lat-ev">
+                            <h4>Register & Login</h4>
+                            <p>Student area velit convallis venenatis lacus quis, efficitur lectus.</p>
+                        </div>
+                    </div>
+                    <div class="ho-st-login">
+                        <ul class="tabs tabs-hom-reg">
+                            <li class="tab col s6"><a href="#hom-vijay">Register</a>
+                            </li>
+                            <li class="tab col s6"><a href="#hom_log">Login</a>
+                            </li>
+                        </ul>
+                        <div id="hom-vijay" class="col s12">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="text" class="validate">
+                                        <label>User name</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="text" class="validate">
+                                        <label>Email id</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="password" class="validate">
+                                        <label>Password</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="password" class="validate">
+                                        <label>Confirm password</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="submit" value="Register" class="waves-effect waves-light light-btn">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="hom_log" class="col s12">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="text" class="validate">
+                                        <label>Student user name</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="text" class="validate">
+                                        <label>Password</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="submit" value="Login" class="waves-effect waves-light light-btn">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS AND EVENTS -->
+    <section>
+        <div class="container com-sp">
+            <div class="row">
+                <div class="con-title">
+                    <h2>News and <span>Events</span></h2>
+                    <p>Fusce id sem at ligula laoreet hendrerit venenatis sed purus. Ut pellentesque maximus lacus, nec pharetra augue.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="bot-gal h-gal ho-event-mob-bot-sp">
+                        <h4>Photo Gallery</h4>
+                        <ul>
+                            {% for imglist in img_list|slice:":12"%}
+                            <li><img class="materialboxed" data-caption="{{imglist.img_caption}}" src="{{imglist.img_gallery.url}}" alt="{{imglist.img_caption}}">
+                            </li>
+
+                            {% endfor %}
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bot-gal h-vid ho-event-mob-bot-sp">
+                        <h4>Video Gallery</h4>
+                        {% for videolist in video_list|slice:":1"%}
+                        <iframe src="{{ MEDIA_URL }}{{ videolist.videofile }}" allowfullscreen></iframe>
+                        <h5>{{videolist.video_title}}</h5>
+                        <p>{{videolist.video_desc}}</p>
+
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bot-gal h-blog ho-event">
+                        <h4>News & Event</h4>
+                        <div class="ho-event">
+                            <ul>
+
+                            {% for eventlist in event_list|slice:":4"%}
+                            <li>
+                                <div class="ho-ev-date"><span>{{eventlist.event_from}}</span>
+                                </div>
+                                <div class="ho-ev-link">
+                                    <a href="/events">
+                                        <h4>{{eventlist.event_title}}</h4>
+                                    </a>
+                                    <p>{{eventlist.event_desc}}</p>
+                                    <span>{{eventlist.event_time_from}} – {{eventlist.event_time_to}}</span>
+                                </div>
+                            </li>
+                            {% endfor %}
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}

@@ -1,0 +1,60 @@
+{%  extends 'html/base.html'%}
+{%load staticfiles%}
+{%block title_block%}{{facilities_list.facility_title|title}}{%endblock%}
+{% block body %}
+
+	<section>
+        <div class="head-2">
+            <div class="container">
+                <div class="head-2-inn head-2-inn-padd-top">
+                    <h1>{{facilities_list.facility_title}}</h1>
+                    <p>Fusce id sem at ligula laoreet hendrerit venenatis sed purus. Ut pellentesque maximus lacus, nec pharetra augue.</p>
+                </div>
+            </div>
+        </div>
+    </section>		
+	
+    <!--SECTION START-->
+    <section>
+        <div class="container com-sp">
+            <div class="row">
+                <div class="cor about-sp">
+                    <div class="ed-about-tit">
+                        <div>
+                            <div class="ho-event pg-eve-main pg-blog">
+                                <ul>
+									 <li>
+                                        <div class="ho-ev-date pg-eve-date"><span>{{facilities_list.publish}}</span>
+                                        </div>
+                                        <div class="pg-eve-desc pg-blog-desc">
+
+                                                <h4>{{facilities_list.facility_title}}</h4>
+
+											<div class="share-btn blog-share-btn">
+												<ul>
+													<li><a href="#"><i class="fa fa-facebook fb1"></i> Share On Facebook</a>
+													</li>
+													<li><a href="#"><i class="fa fa-twitter tw1"></i> Share On Twitter</a>
+													</li>
+													<li><a href="#"><i class="fa fa-google-plus gp1"></i> Share On Google Plus</a>
+													</li>
+												</ul>
+											</div>
+											<img src="{{facilities_list.facility_img.url}}" alt="">
+                                            <p>{{facilities_list.facility_desc|linebreaks}}</p>
+
+                                            <span><strong>{{facilities_list.publish}}</strong></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--SECTION END-->
+
+{% endblock %}

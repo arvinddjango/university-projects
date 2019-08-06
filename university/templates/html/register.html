@@ -1,0 +1,90 @@
+{%load staticfiles%}
+{% load crispy_forms_tags %}<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{%block title_block%}{%endblock%}</title>
+    <!-- META TAGS -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Education master is one of the best educational html template, it's suitable for all education websites like university,college,school,online education,tution center,distance education,computer education">
+    <meta name="keyword"
+          content="education html template, university template, college template, school template, online education template, tution center template">
+    <!-- FAV ICON(BROWSER TAB ICON) -->
+    <link rel="shortcut icon" href="{% static 'images/fav.ico' %}" type="image/x-icon">
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CJosefin+Sans:600,700"
+          rel="stylesheet">
+    <!-- FONTAWESOME ICONS -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <!-- ALL CSS FILES -->
+    <link href="{% static 'css/materialize.css'%}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet"/>
+    <link href="{% static 'css/style.css'%}" rel="stylesheet"/>
+    <!-- RESPONSIVE.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
+    <link href="{% static 'css/style-mob.css'%}" rel="stylesheet"/>
+    <!--
+	<script src="{% static 'js/html5shiv.js'%}"></script>
+	<script src="{% static 'js/respond.min.js'%}"></script>-->
+
+</head>
+
+<body>
+
+
+
+<!--HEADER SECTION-->
+<section>
+    <!-- TOP BAR -->
+           <div>
+            <div class="log-in-pop">
+                <div class="log-in-pop-left">
+                    <h1>Hello...</h1>
+                    <p>Don't have an account? Create your account. It's take less then a minutes</p>
+                    <h4>Login with social media</h4>
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-google"></i> Google+</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="log-in-pop-right">
+
+                    <h4>Create an Account</h4>
+                    <p>Don't have an account? Create your account. It's take less then a minutes</p>
+                    <form class="s12" method="post">
+                        {% csrf_token %}
+
+                        <div>
+                            <div class="input-field s12">
+                                {{form}}
+                            </div>
+                        </div>
+
+
+
+                        <div>
+                            <div class="input-field s4">
+                                <input type="submit" value="Register" class="waves-effect waves-light log-in-btn"> </div>
+                        </div>
+                        <div>
+                            <div class="input-field s12"> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal1">Are you a already member ? Login</a> </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+</section>
+
+
+
+
+</html>

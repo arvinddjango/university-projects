@@ -1,0 +1,191 @@
+{%  extends 'includes/admin-header.html'%}
+{%load staticfiles%}
+% load crispy_forms_tags %}
+{%block title_block%}Admin Studetn Edit Page{%endblock%}
+{% block body %}
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            </li>
+            <li class="active-bre"><a href="#"> Student Details</a>
+            </li>
+            <li class="page-back"><a href="/"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp admin-form">
+                    <div class="inn-title">
+                        <h4>Student Informations</h4>
+                        <p>Here you can edit your website basic details URL, Phone, Email, Address, User and password
+                            and more</p>
+                    </div>
+                    <div class="tab-inn">
+                        <form method="post" enctype="multipart/form-data">
+                            {%csrf_token%}
+                           <!-- <div class="row">
+                                <div class="input-field col s12">
+                                   {{u_form.user}}
+                                    <input type="text" value="{{instances.student_id}}" name="student_id"
+                                           class="validate" required>
+
+                                </div>
+                            </div>-->
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                   {{form.user}}
+
+
+                                   <!--<input type="text" value="{{student_edit.user}}" name="user" class="validate" >
+                                    <label class="">User name</label>-->
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <div class="input-field col s12">
+                                    <textarea name="about_student">{{student_edit.about_student}}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input type="text" value="{{student_edit.student_id}}" name="student_id"
+                                           class="validate">
+                                    <label class="">Student Id</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="number" value="{{student_edit.student_mobile_no}}"
+                                           name="student_mobile_no" class="validate">
+                                    <label class="">Mobile Number</label>
+                                </div>
+                            </div>
+                                        <div class="row">
+                                <div class="input-field col s6">
+                                    <input type="text" value="{{student_edit.date_of_birth|date:'Y-m-d'}}" name="date_of_birth"
+                                           class="validate">
+                                    <label class="">Date of Birth (yyyy-mm-dd)</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text" value="{{student_edit.student_address}}"
+                                           name="student_address" class="validate" >
+                                    <label class="">Student Address</label>
+                                </div>
+                            </div>
+                                  <div class="row">
+											<div class="file-field input-field col s12">
+												<div class="btn admin-upload-btn">
+													<span>File</span>
+                                                    <input type="file" name="student_img">
+
+												</div>
+												<div class="file-path-wrapper">
+													<input class="file-path validate" type="text" placeholder="{{student_edit.student_img}}">
+												</div>
+											</div>
+                                        </div>
+<div class="row">
+                                <div class="input-field col s6">
+                                    <input type="text" value="{{student_edit.facebook_url}}" name="facebook_url"
+                                           class="validate">
+                                    <label class="">Facebook Url</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text" value="{{student_edit.google_url}}"
+                                           name="google_url" class="validate" >
+                                    <label class="">Google Url</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input type="text" value="{{student_edit.Twitter_url}}" name="Twitter_url"
+                                           class="validate">
+                                    <label class="">User name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text" value="{{student_edit.terms_condition}}"
+                                           name="terms_condition" class="validate" >
+                                    <label class="">Terms & Condition</label>
+                                </div>
+                            </div>
+
+                            <!-- <div class="row">
+                                 <div class="input-field col s6">
+                                     <input type="text" value="{{instances.username}}" name="username" class="validate" required>
+                                     <label class="">User name</label>
+                                 </div>
+                                 <div class="input-field col s6">
+                                     <input type="text" value="{{instances.first_name}}" name="first_name" class="validate" required>
+                                     <label class="">First Name</label>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="input-field col s6">
+                                     <input type="text" value="{{instances.last_name}}" name="last_name" class="validate" required>
+                                     <label class="">Last Name</label>
+                                 </div>
+                                 <div class="input-field col s6">
+                                     <input type="email" class="validate" value="{{instances.email}}" name="email" required>
+                                     <label class="">Email is</label>
+                                 </div>
+                             </div>-->
+                            <!-- <div class="row">
+                                 <div class="input-field col s6">
+                                     <input type="text" value="New york" class="validate">
+                                     <label class="">City</label>
+                                 </div>
+                                 <div class="input-field col s6">
+                                     <input type="text" value="united states" class="validate">
+                                     <label class="">Country</label>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="input-field col s6">
+                                     <input type="password" value="sdflg345609" class="validate">
+                                     <label class="">Password</label>
+                                 </div>
+                                 <div class="input-field col s6">
+                                     <input type="password" value="asfgdkl678" class="validate">
+                                     <label class="">Confirm Password</label>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="input-field col s12">
+                                     <input type="text" value="ST17241" class="validate">
+                                     <label>Student id</label>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="file-field input-field col s12">
+                                     <div class="btn admin-upload-btn">
+                                         <span>File</span>
+                                         <input type="file">
+                                     </div>
+                                     <div class="file-path-wrapper">
+                                         <input class="file-path validate" type="text" placeholder="Profile image">
+                                     </div>
+                                 </div>
+                             </div>      -->
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input
+                                            type="submit" class="waves-button-input"></i>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

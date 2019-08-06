@@ -1,0 +1,182 @@
+{%  extends 'includes/admin-header.html'%}
+{%load staticfiles%}
+{%block title_block%}Admin job Edit{%endblock%}
+{% block body %}
+            <!--== BODY INNER CONTAINER ==-->
+            <div class="sb2-2">
+                <!--== breadcrumbs ==-->
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="/index-2"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Edit Job Opening</a>
+                        </li>
+                        <li class="page-back"><a href="/index-2"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--== User Details ==-->
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+						<div class="box-inn-sp admin-form">
+                                <div class="inn-title">
+                                    <h4>Edit Microsofts Job</h4>
+                                    <p>Here you can edit your website basic details URL, Phone, Email, Address, User and password and more</p>
+                                </div>
+                                <div class="tab-inn">
+
+                                    <form method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                            <div class="row">
+											<div class="file-field input-field col s12">
+												<div class="btn admin-upload-btn">
+													<span>File</span>
+                                                     <input type="file" name="job_img">
+
+												</div>
+												<div class="file-path-wrapper">
+													<input class="file-path validate" type="text" placeholder="{{job_edit.job_img}}">
+												</div>
+											</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input type="text" value="{{job_edit.job_title}}" name="job_title" class="validate" required>
+
+                                                <label class="">Job Title</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input type="text" value="{{job_edit.slug}}" name="slug" class="validate" required>
+
+                                                <label class="">Job Slug</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                 <textarea name="job_desc">{{job_edit.job_desc}}</textarea>
+
+                                                <label class="">Job Descriptions</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                              <div class="input-field col s6">
+                                                  <input type="text" value="{{job_edit.job_location}}" name="job_location" class="validate">
+
+                                                <label class="">Job Location</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input type="text" value="{{job_edit.job_opening}}" name="job_opening" class="validate">
+
+                                                <label class="">No of Opening</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input type="text" value="{{job_edit.job_position}}" name="job_position" class="validate">
+
+                                                <label class="">Job Position</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input type="text" value="{{job_edit.job_from|date:'Y-m-d'}}" name="job_from" class="validate">
+
+                                                <label class="">Job From Start Date (yyyy-mm-dd)</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                 <input type="text" value="{{job_edit.job_time_from|time:'H:i'}}" name="job_time_from" class="validate">
+
+                                                <label class="">Job Time From (HH:MM:Sec)</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                 <input type="text" value="{{job_edit.job_time_to|time:'H:i'}}" name="job_time_to" class="validate">
+
+                                                <label class="">Job Time To (HH:MM:Sec)</label>
+                                            </div>
+                                        </div>
+
+										<div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input"></i>
+                                            </div>
+                                        </div>
+                                    </form>
+
+
+
+
+
+
+
+
+
+
+
+                                    <!--<form>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="text" value="Microsofts" class="validate" required>
+                                                <label class="">Company name</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <textarea>Fusce purus mauris, blandit vitae purus eget, viverra volutpat nibh. Nam in elementum nisi, a placerat nisi. Quisque ullamcorper magna in odio rhoncus semper.Sed nec ultricies velit. Aliquam non massa id enim ultrices aliquet a ac tortor.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</textarea>
+                                                <label class="">Job Descriptions</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="number" value="12" class="validate" required>
+                                                <label class="">No of Opening</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input type="text" value="Jan 01, 2018" class="validate" required>
+                                                <label class="">Start Date</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input type="text" class="validate" value="02:00 PM GMT" required>
+                                                <label class="">Time</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input type="text" value="New york" class="validate">
+                                                <label class="">City</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input type="text" value="United states" class="validate">
+                                                <label class="">Country</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+											<div class="file-field input-field col s12">
+												<div class="btn admin-upload-btn">
+													<span>File</span>
+													<input type="file">
+												</div>
+												<div class="file-path-wrapper">
+													<input class="file-path validate" type="text" placeholder="Event image">
+												</div>
+											</div>
+                                        </div>
+										<div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input"></i>
+                                            </div>
+                                        </div>
+                                    </form>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{%  extends 'includes/admin-header.html'%}
+{%load staticfiles%}
+{%block title_block%}Admin Slider Edit {%endblock%}
+{% block body %}
+
+            <!--== BODY INNER CONTAINER ==-->
+            <div class="sb2-2">
+                <!--== breadcrumbs ==-->
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Slider</a>
+                        </li>
+                        <li class="page-back"><a href="/"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--== User Details ==-->
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box-inn-sp admin-form">
+                                <div class="inn-title">
+                                    <h4>Slider details</h4>
+                                    <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                                </div>
+                                <div class="tab-inn">
+                                    <form>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="text" class="validate">
+                                                <label class="">Slider title</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                                <input type="text" class="validate">
+                                                <label>Descriptio(max:2 lines)</label>
+                                            </div>
+											<div class="input-field col s12">
+                                                <input type="text" class="validate">
+                                                <label>Button 1 link</label>
+                                            </div>
+											<div class="input-field col s12">
+                                                <input type="text" class="validate">
+                                                <label>Button 2 link</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+											<div class="file-field input-field col s12">
+												<div class="btn admin-upload-btn">
+													<span>File</span>
+													<input type="file" multiple="">
+												</div>
+												<div class="file-path-wrapper">
+													<input class="file-path validate" type="text" placeholder="Slider image">
+												</div>
+											</div>
+                                        </div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <select>
+									  <option value="" disabled selected>Select Status</option>
+									  <option value="1">Active</option>
+									  <option value="2">De-Active</option>
+									  <option value="3">Delete</option>
+									</select>
+                                                </div>
+                                            </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input" value="Submit"></i>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}

@@ -1,0 +1,145 @@
+{%  extends 'includes/admin-header.html'%}
+{%load staticfiles%}
+{%block title_block%}Admin Event Edit {%endblock%}
+{% block body %}
+            <!--== BODY INNER CONTAINER ==-->
+            <div class="sb2-2">
+                <!--== breadcrumbs ==-->
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Edit Event</a>
+                        </li>
+                        <li class="page-back"><a href="/"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--== User Details ==-->
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+						<div class="box-inn-sp admin-form">
+                                <div class="inn-title">
+                                    <h4>Edit Event</h4>
+                                    <p>Here you can edit your website basic details URL, Phone, Email, Address, User and password and more</p>
+                                </div>
+                                <div class="tab-inn">
+                                   <form method="post" enctype="multipart/form-data">
+                                       {%csrf_token%}
+                                        <div class="row">
+											<div class="file-field input-field col s12">
+												<div class="btn admin-upload-btn">
+													<span>File</span>
+                                                    <input type="file" name="event_img">
+
+												</div>
+												<div class="file-path-wrapper">
+													<input class="file-path validate" type="text" placeholder="{{event_edit.event_img}}">
+												</div>
+											</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="text" value="{{event_edit.event_title}}" name="event_title" class="validate" required>
+
+                                                <label class="">Event Title</label>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="text" value="{{event_edit.slug}}" name="slug" class="validate" required>
+
+                                                <label class="">Event Slug</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <textarea name="event_desc">{{event_edit.event_desc}}</textarea>
+
+                                                <label class="">Event Descriptions</label>
+                                            </div>
+                                        </div>
+                                           <div class="row">
+                                            <div class="input-field col s6">
+                                                <input type="text" value="{{event_edit.event_location}}" name="event_location" class="validate" required>
+
+                                                <label class="">Location</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input type="text" value="{{event_edit.event_from|date:'Y-m-d'}}" name="event_from" class="validate">
+
+                                                <label class="">Event From (yyyy-mm-dd)</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input type="text" value="{{event_edit.event_time_from|time:'H:i'}}" name="event_time_from" class="validate">
+
+                                                <label class="">Event Time From(HH::MM:SEC)</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input type="text" value="{{event_edit.event_time_to|time:'H:i'}}" name="event_time_to" class="validate">
+
+                                                <label class="">Event Time To((HH::MM:SEC)</label>
+                                            </div>
+                                        </div>
+
+
+                                        <!--<div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="text" value="{{event_edit.event_title}}" name="event_title" class="validate" required>
+                                                <label class="">Event name</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <textarea name="event_desc">{{event_edit.event_desc}}</textarea>
+                                                <label class="">Event Descriptions</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input type="text" value="{{event_edit.event_time_from}}" name="event_time_from" class="validate" required>
+                                                <label class="">Date</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input type="text" class="validate" name="event_time_to" value="{{event_edit.event_time_to}}" required>
+                                                <label class="">Time</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input type="text" value="{{event_edit.event_from}}" name="event_from" class="validate">
+                                                <label class="">City</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input type="text" value="{{event_edit.event_location}}" name="event_location" class="validate">
+                                                <label class="">Country</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+											<div class="file-field input-field col s12">
+												<div class="btn admin-upload-btn">
+													<span>File</span>
+													<input type="file" name="event_img">
+												</div>
+												<div class="file-path-wrapper">
+													<input class="file-path validate" type="text" placeholder="{{event_edit.event_img}}">
+												</div>
+											</div>
+                                        </div>-->
+										<div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input"></i>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

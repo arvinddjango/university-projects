@@ -1,0 +1,104 @@
+
+{%  extends 'html/base.html'%}
+{%load staticfiles%}
+{%block title_block%}University Home Page{%endblock%}
+{% block body %}
+
+
+    <!--SECTION START-->
+    <section>
+        <div class="pro-cover">
+        </div>
+        <div class="pro-menu">
+            <div class="container">
+                <div class="col-md-9 col-md-offset-3">
+                    <ul>
+                        <li><a href="/dashboard">My Dashboard</a></li>
+                        <li><a href="/db-profile" class="pro-act">Profile</a></li>
+                        <li><a href="/db-course">Courses</a></li>
+                        <li><a href="/db-exams">Exams</a></li>
+                        <li><a href="/db-time-line">Time Line</a></li>
+                        <li><a href="#">Entry</a></li>
+                        <li><a href="#">Notifications</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="stu-db">
+            <div class="container pg-inn">
+                <div class="col-md-3">
+                    <div class="pro-user">
+                        <img src="{{user.profile.student_img.url}}" alt="user">
+                    </div>
+                    <div class="pro-user-bio">
+                        <ul>
+                            <li>
+                                <h4>{{user.username}}</h4>
+                            </li>
+                            <li>Student Id: {{user.profile.student_id}}</li>
+                            <li><a href="#!"><i class="fa fa-facebook"></i> Facebook: {{user.profile.facebook_url}}</a></li>
+                            <li><a href="#!"><i class="fa fa-google-plus"></i> Google: {{user.profile.google_url}}</a></li>
+                            <li><a href="#!"><i class="fa fa-twitter"></i> Twitter: {{user.profile.Twitter_url}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="udb">
+
+                        <div class="udb-sec udb-prof">
+                            <h4><img src="{% static 'images/icon/db1.png' %}" alt="" /> My Profile</h4>
+                            <p>{{user.profile.about_student}}</p>
+                            <div class="sdb-tabl-com sdb-pro-table">
+                                <table class="responsive-table bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td>Student Name</td>
+                                            <td>:</td>
+                                            <td>{{user.first_name}} {{user.last_name}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Student Id</td>
+                                            <td>:</td>
+                                            <td>{{user.profile.student_id}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Eamil</td>
+                                            <td>:</td>
+                                            <td>{{user.email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone</td>
+                                            <td>:</td>
+                                            <td>{{user.profile.student_mobile_no}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date of birth</td>
+                                            <td>:</td>
+                                            <td>{{user.profile.date_of_birth}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td>:</td>
+                                            <td>{{user.profile.student_address}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Status</td>
+                                            <td>:</td>
+                                            <td><span class="db-done">{{user.profile.user_active}}</span> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="sdb-bot-edit">
+                                    <p>{{user.profile.terms_condition}}</p>
+                                    <a href="#" class="waves-effect waves-light btn-large sdb-btn sdb-btn-edit"><i class="fa fa-pencil"></i> Edit my profile</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--SECTION END-->
+
+{%endblock%}

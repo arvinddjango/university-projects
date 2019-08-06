@@ -1,0 +1,90 @@
+{%  extends 'html/base.html'%}
+{%load staticfiles%}
+{%block title_block%}Contact Us{%endblock%}
+{% load crispy_forms_tags %}
+{% block body %}
+
+
+    <!--SECTION START-->
+    <section>
+        <div class="container com-sp pad-bot-70">
+            <div class="row">
+                <div class="cor about-sp">
+                    <div class="ed-about-tit">
+                        <div class="con-title">
+                            <h2>Contact <span> Us</span></h2>
+                            <p>Fusce id sem at ligula laoreet hendrerit venenatis sed purus. Ut pellentesque maximus lacus, nec pharetra augue.</p>
+                        </div>
+                    </div>
+                    <div class="pg-contact">
+                        {% for contactdetails in contact_details%}
+                        <div class="col-md-3 col-sm-6 col-xs-12 new-con new-con1">
+                            <h2>Educate <span>Master</span></h2>
+                            <p>{{contactdetails.contact_title}}</p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 new-con new-con1"> <img src="{% static 'img/contact/1.png' %}" alt="">
+                            <h4>Address</h4>
+                            <p>{{contactdetails.contact_address}}</p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 new-con new-con3"> <img src="{% static 'img/contact/2.png' %}" alt="">
+                            <h4>CONTACT INFO:</h4>
+                            <p> <a href="#" class="contact-icon">Phone: {{contactdetails.contact_phone}}</a>
+                                <br> <a href="#" class="contact-icon">Mobile: {{contactdetails.contact_mobile}}</a>
+                                <br> <a href="#" class="contact-icon">Email: {{contactdetails.contact_email}}</a> </p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 new-con new-con4"> <img src="{% static 'img/contact/3.png' %}" alt="">
+                            <h4>Website</h4>
+                            <p> Website:{{contactdetails.contact_website}}
+                                <br> Facebook:{{contactdetails.contact_facebook}}
+                                <br> Blog:{{contactdetails.contact_blog}} </p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--SECTION END-->
+
+    <section id="map">
+        <div class="row contact-map">
+            <!-- IFRAME: GET YOUR LOCATION FROM GOOGLE MAP -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6290413.804893654!2d-93.99620524741552!3d39.66116578737809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880b2d386f6e2619%3A0x7f15825064115956!2sIllinois%2C+USA!5e0!3m2!1sen!2sin!4v1469954001005"
+                allowfullscreen=""></iframe>
+            <div class="container">
+                <div class="overlay-contact footer-part footer-part-form">
+                    <div class="map-head">
+                        <p>Send Us Now</p>
+                        <h2>GetIn Touch</h2> <span class="footer-ser-re">Service Request Form</span> </div>
+                                             {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+                    <!-- ENQUIRY FORM -->
+                    <form id="contact_form" name="contact_form" method="post">
+                        {% csrf_token %}
+                        <ul>
+                            <li class="col-md-6 col-sm-6 col-xs-12 contact-input-spac">
+                               {{form.name}}
+                            <li class="col-md-6 col-sm-6 col-xs-12 contact-input-spac">
+                                {{form.phone}}
+                            <li class="col-md-6 col-sm-6 col-xs-12 contact-input-spac">
+                               {{form.email}}
+                            <li class="col-md-6 col-sm-6 col-xs-12 contact-input-spac">
+                               {{form.city}}
+                            <li class="col-md-12 col-sm-12 col-xs-12 contact-input-spac">
+                                {{form.message}}
+                            </li>
+                            <li class="col-md-6">
+                                <input type="submit" value="SUBMIT"> </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{%endblock%}

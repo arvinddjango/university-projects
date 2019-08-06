@@ -1,0 +1,80 @@
+{%  extends 'includes/admin-header.html'%}
+{%load staticfiles%}
+{%block title_block%}Admin User All{%endblock%}
+{% block body %}
+            <!--== BODY INNER CONTAINER ==-->
+            <div class="sb2-2">
+                <!--== breadcrumbs ==-->
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Users(Students)</a>
+                        </li>
+                        <li class="page-back"><a href="/"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--== User Details ==-->
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box-inn-sp">
+                                <div class="inn-title">
+                                    <h4>Student Details</h4>
+                                    <p>All about students like name, student id, phone, email, country, city and more</p>
+                                </div>
+                                <div class="tab-inn">
+                                    <div class="table-responsive table-desi">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sl.No</th>
+                                                    <th>Username</th>
+                                                    <th>First Name</th>
+
+                                                    <th>Last Name</th>
+                                                    <th>Email Id</th>
+
+													<th>Status</th>
+													<th>Edit</th>
+                                                    <th>View</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for userlist in user_profile %}
+                                                <tr>
+                                                    <td>{{userlist.id}}</td>
+                                                    <td>{{userlist.username}}</td>
+                                                    <td>{{userlist.first_name}} </td>
+
+                                                    <td>{{userlist.last_name}}</td>
+
+                                                    <td>{{userlist.email}}</td>
+
+                                                    <td>
+                                                        <span class="label label-success">Active</span>
+                                                    </td>
+													<td><a href="/admin-user-edit/{{userlist.id}}" class="ad-st-view">Edit</a></td>
+                                                    <td><a href="/admin-user-details/{{userlist.id}}" class="ad-st-view">View</a></td>
+                                                    <td><a href="/admin-user-delete/{{userlist.id}}" class="ad-st-view">Delete</a></td>
+                                                </tr>
+                                                {% endfor %}
+
+
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{%  extends 'includes/admin-header.html'%}
+{%load staticfiles%}
+% load crispy_forms_tags %}
+{%block title_block%}Admin Studetn Edit Page{%endblock%}
+{% block body %}
+            <!--== BODY INNER CONTAINER ==-->
+            <div class="sb2-2">
+                <!--== breadcrumbs ==-->
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="/admin-job-all"> Job Details</a>
+                        </li>
+                        <li class="page-back"><a href="/admin-job-all"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--== User Details ==-->
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+						<div class="box-inn-sp admin-form">
+                                <div class="inn-title">
+                                    <h4>Job Informations</h4>
+                                    <p>Here you can edit your website basic details URL, Phone, Email, Address, User and password and more</p>
+                                </div>
+                                    <div class="tab-inn">
+                                    <div class="table-responsive table-desi">
+
+
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID: {{job_list_view.id}}</th>
+
+
+                                                </tr>
+                                            </thead>
+                                                <thead>
+                                                <tr>
+
+                                                    <th>Job Title : {{job_list_view.job_title}}</th>
+
+                                                </tr>
+                                            </thead>
+                                            <thead>
+                                                <tr>
+
+                                                    <th>Job Description : {{job_list_view.job_desc}}</th>
+
+                                                </tr>
+                                            </thead>
+
+                                              <thead>
+                                                <tr>
+                                                    <th>Job Location : {{job_list_view.job_location}}</th>
+                                                </tr>
+                                            </thead>
+                                               <thead>
+                                                <tr>
+                                                    <th>Job Opening: {{job_list_view.job_opening}}</th>
+                                                </tr>
+                                            </thead>
+                                              <thead>
+                                                <tr>
+                                                    <th>Job Position : {{job_list_view.job_position}}</th>
+                                                </tr>
+                                            </thead>
+                                              <thead>
+                                                <tr>
+                                                    <th>Job From Date: {{job_list_view.job_from}} </th>
+                                                </tr>
+                                            </thead>
+                                              <thead>
+                                                <tr>
+                                                    <th>Job Time Start : {{job_list_view.job_time_from}}</th>
+                                                </tr>
+                                            </thead>
+                                              <thead>
+                                                <tr>
+                                                    <th>Job Time To : {{job_list_view.job_time_to}}</th>
+                                                </tr>
+                                            </thead>
+                                              <thead>
+                                                <tr>
+                                                    <th>Job Created Date: {{job_list_view.job_create}}</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}

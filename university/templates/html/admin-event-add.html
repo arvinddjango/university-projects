@@ -1,0 +1,103 @@
+{%  extends 'includes/admin-header.html'%}
+{%load staticfiles%}
+{% load crispy_forms_tags %}
+{%block title_block%}Admin Event Add{%endblock%}
+{% block body %}
+
+            <!--== BODY INNER CONTAINER ==-->
+            <div class="sb2-2">
+                <!--== breadcrumbs ==-->
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Add New Event</a>
+                        </li>
+                        <li class="page-back"><a href="/"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--== User Details ==-->
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+						<div class="box-inn-sp admin-form">
+                                <div class="inn-title">
+                                    <h4>Add Event</h4>
+                                    <p>Here you can edit your website basic details URL, Phone, Email, Address, User and password and more</p>
+                                </div>
+                                <div class="tab-inn">
+                                    <form method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                         <!--<div class="row">
+                                            <div class="input-field col s12">
+                                               {{form}}
+
+                                            </div>
+                                         </div>-->
+                                          <div class="row">
+											<div class="file-field input-field col s12">
+												<div class="btn admin-upload-btn">
+													<span>File</span>
+													{{form.event_img}}
+												</div>
+												<div class="file-path-wrapper">
+													<input class="file-path validate" type="text" placeholder="Event image">
+												</div>
+											</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                {{form.event_title}}
+                                                <label class="">Event Title</label>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="input-field col s12">
+                                              {{form.slug}}
+                                                <label class="">Event Slug</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                               {{form.event_desc}}
+                                                <label class="">Event Descriptions</label>
+                                            </div>
+                                        </div>
+                                           <div class="row">
+                                            <div class="input-field col s6">
+                                                {{form.event_location}}
+                                                <label class="">Location</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                {{form.event_from}}
+                                                <label class="">Event From (yyyy-mm-dd)</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                               {{form.event_time_from}}
+                                                <label class="">Event Time From(HH::MM:SEC)</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                {{form.event_time_to}}
+                                                <label class="">Event Time To((HH::MM:SEC)</label>
+                                            </div>
+                                        </div>
+
+
+										<div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input"></i>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}
