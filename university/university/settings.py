@@ -29,7 +29,7 @@ SECRET_KEY = 'bjk5xo3lda*l!m96f!2^pt@59t^fz!w&518stkhr%x2ce^9ta^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -85,8 +85,12 @@ WSGI_APPLICATION = 'university.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'webs4solution',
+        'USER': 'webs',
+        'PASSWORD': 'Arvind@1432',
+        'HOST': 'localhost',
+        'PORT': '3306'
     }
 }
 
